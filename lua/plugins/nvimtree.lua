@@ -1,0 +1,83 @@
+return {
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = {
+      on_attach = function(bufnr)
+        local api = require "nvim-tree.api"
+
+        local function opts(desc)
+          return {
+            desc = "nvim-tree: " .. desc,
+            buffer = bufnr,
+            noremap = true,
+            silent = true,
+            nowait = true,
+          }
+        end
+
+        local function edit_or_open()
+          api.node.open.edit()
+          api.tree.focus()
+        end
+
+        local function vsplit_preview()
+          local node = api.tree.get_node_under_cursor()
+
+          if node.nodes ~= nil then
+            api.node.open.edit()
+          else
+            api.node.open.vertical()
+          end
+
+          api.tree.focus()
+        end
+
+        local map = vim.keymap.set
+
+        map("n", "l", edit_or_open, opts "Edit Or Open")
+        map("n", "L", vsplit_preview, opts "Vsplit Preview")
+        map("n", "h", api.tree.close, opts "Close")
+        map("n", "o", api.node.open.edit, opts "Edit")
+
+        map("n", "a", api.fs.create, opts "Create")
+        map("n", "r", api.fs.rename, opts "Rename")
+        map("n", "H", api.tree.toggle_hidden_filter, opts "Toggle Hiddens")
+        map("n", "d", api.fs.remove, opts "Remove")
+        map("n", "x", api.fs.cut, opts "Cut")
+        map("n", "y", api.fs.copy.node, opts "Yank")
+        map("n", "p", api.fs.paste, opts "Paste")
+
+        map("n", "m", api.marks.toggle, opts "Toggle Mark")
+      end,
+      diagnostics = {
+        enable = true,
+        icons = {
+          hint = "H",
+          info = "I",
+          warning = "W",
+          error = "E",
+        },
+      },
+      renderer = {
+        add_trailing = true,
+        hidden_display = "all",
+        highlight_git = true,
+        icons = {
+          git_placement = "right_align",
+          bookmarks_placement = "after",
+          glyphs = {
+            git = {
+              unstaged = "!",
+              staged = "",
+              unmerged = "/",
+              renamed = ">",
+              untracked = "?",
+              deleted = "-",
+              ignored = "◌",
+            },
+          },
+        },
+      },
+    },
+  },
+}
