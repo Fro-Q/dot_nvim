@@ -7,3 +7,4 @@ opt.cursorline = true
 
 opt.termguicolors = true
 
+opt.wrap = false
