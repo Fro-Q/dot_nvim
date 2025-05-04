@@ -6,6 +6,7 @@ local options = {
     ts = { "eslint-lsp" },
     css = { "prettier" },
     html = { "eslint-lsp" },
+    tex = { "tex-fmt" },
   },
 
   format_on_save = {

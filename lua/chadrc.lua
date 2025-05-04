@@ -6,8 +6,8 @@
 local M = {}
 
 M.base46 = {
-  theme = "monochrome",
-  -- theme = "monochrome",
+  theme = "mountain",
+  -- theme = "mountain",
   -- transparency = true,
 
   hl_override = {

@@ -24,7 +24,7 @@ return {
 
       vim.g.rainbow_delimiters = { highlight = highlight }
       require("ibl").setup {
-        scope = { char = "▏", highlight = highlight, show_start = true, show_end = true },
+        scope = { char = "▎", highlight = highlight, show_start = true, show_end = true },
         indent = { char = "▏" },
       }
 
