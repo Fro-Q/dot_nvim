@@ -56,3 +56,7 @@ map({ "n", "t" }, "<C-\\>", function()
 end, { desc = "terminal toggle floating term" })
 
 map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
+
+map("n", "<leader>th", function()
+  require("nvchad.themes").open()
+end, { desc = "telescope nvchad themes" })
