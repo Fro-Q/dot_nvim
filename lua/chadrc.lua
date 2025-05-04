@@ -6,12 +6,20 @@
 local M = {}
 
 M.base46 = {
-  theme = "chocolate",
-  transparency = true,
+  theme = "monochrome",
+  -- theme = "monochrome",
+  -- transparency = true,
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+  },
+}
+
+M.ui = {
+  statusline = {
+    -- theme = "minimal",
+    theme = "vscode_colored",
   },
 }
 
