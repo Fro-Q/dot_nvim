@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-doc-name
+---@diagnostic disable: undefined-doc-name, inject-field
 -- This file needs to have same structure as nvconfig.lua
 -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
 -- Please read that file to know all available options :(
@@ -7,13 +7,14 @@
 local M = {}
 
 M.base46 = {
-  theme = "mountain",
-  -- theme = "mountain",
-  -- transparency = true,
+  theme = "everforest",
+  -- theme = "everforest",
+  transparency = true,
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
+    ["@variable"] = { italic = true },
   },
 }
 

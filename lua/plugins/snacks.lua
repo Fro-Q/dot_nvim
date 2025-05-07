@@ -9,6 +9,13 @@ return {
   end,
   keys = {
     {
+      "<leader>Z",
+      function()
+        Snacks.zen()
+      end,
+      desc = "Toggle Zen",
+    },
+    {
       "<leader>c",
       function()
         Snacks.bufdelete()

@@ -2,6 +2,7 @@ local map = vim.keymap.set
 
 -- insert mode
 map({ "i", "t" }, "jk", "<ESC>", { desc = "escape insert mode" })
+map({ "i", "t" }, "JK", "<ESC>", { desc = "escape insert mode" })
 
 -- normal mode
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })

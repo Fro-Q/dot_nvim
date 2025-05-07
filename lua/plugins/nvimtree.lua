@@ -22,9 +22,9 @@ return {
       ---@diagnostic disable-next-line: undefined-global
       local map = vim.keymap.set
 
-      map("n", "l", edit_or_open, opts "Edit Or Open")
+      map("n", "L", edit_or_open, opts "Edit Or Open")
       map("n", "h", api.tree.close, opts "Close")
-      map("n", "L", api.node.open.edit, opts "Open")
+      map("n", "l", api.node.open.preview, opts "Preview")
       map("n", "o", api.node.open.edit, opts "Open")
       map("n", "<cr>", api.node.open.edit, opts "Open")
 

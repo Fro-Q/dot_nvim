@@ -7,6 +7,10 @@ return {
       "vimdoc",
       "html",
       "css",
+      "typescript",
+      "javascript",
+      "vue",
+      "json",
     },
   },
 }

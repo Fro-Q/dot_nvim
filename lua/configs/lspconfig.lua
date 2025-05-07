@@ -11,10 +11,10 @@ vim.diagnostic.config {
   virtual_lines = {
     current_line = true,
   },
-  virtual_text = {
-    spacing = 4,
-    prefix = "",
-  },
+  -- virtual_text = {
+  --   spacing = 4,
+  --   prefix = "",
+  -- },
   float = {
     severity_sort = true,
     source = "if_many",
@@ -118,6 +118,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
     end
 
+    map("K", function()
+      vim.lsp.buf.hover { border = "single", max_height = 25, max_width = 120 }
+    end, "Hover for Info")
     map("gd", function()
       local params = vim.lsp.util.make_position_params(0, "utf-8")
       vim.lsp.buf_request(0, "textDocument/definition", params, function(_, result, _, _)
