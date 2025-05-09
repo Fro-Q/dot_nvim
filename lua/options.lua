@@ -2,6 +2,10 @@
 require "nvchad.options"
 local opt = vim.opt
 
+local function set_hl(hl_group, opts)
+  vim.api.nvim_set_hl(0, hl_group, opts)
+end
+
 opt.relativenumber = true
 opt.cursorline = true
 opt.cursorlineopt = "both"
@@ -12,8 +16,10 @@ opt.list = true
 opt.listchars = { trail = "·", tab = "» " }
 
 opt.wrap = false
-vim.api.nvim_set_hl(0, "Whitespace", { fg = "#555555" }) -- neither this one
-vim.api.nvim_set_hl(0, "LspInlayHint", { bg = "#333333", italic = true })
+-- set_hl("Whitespace", { fg = "#555555" }) -- neither this one
+set_hl("LspInlayHint", { bg = "#222222", fg = "#888888" })
+-- set_hl("CursorColumn", { bg = "#444444", fg = "#ffffff" })
+-- CursorColumn = { bg = "#444444", fg = "#ffffff" },
 
 vim.opt.whichwrap = "<,>"
 

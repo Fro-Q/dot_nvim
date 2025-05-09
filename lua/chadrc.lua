@@ -9,12 +9,16 @@ local M = {}
 M.base46 = {
   theme = "ashes",
   -- theme = "ashes",
-  -- transparency = true,
+  transparency = true,
 
   hl_override = {
     Comment = { italic = true },
     ["@comment"] = { italic = true },
     ["@variable"] = { italic = true },
+    Whitespace = { fg = "#555555" },
+    LspInlayHint = { bg = "#222222", fg = "#666666" },
+    CursorLine = { bg = "#282828" },
+    Folded = { bg = "#333333" },
   },
 }
 
