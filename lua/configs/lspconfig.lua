@@ -1,12 +1,9 @@
 ---@diagnostic disable undefined global
-local ls = {
-  "lua_ls",
-}
-vim.lsp.enable(ls)
-
 -- UI touches
 local icons = require "ui.icons"
 local util = require "lspconfig.util"
+local home = os.getenv "HOME"
+
 vim.diagnostic.config {
   virtual_lines = {
     current_line = true,
@@ -33,6 +30,88 @@ vim.diagnostic.config {
 
 -- Main table for all LSP opts
 local servers = {
+  lua_ls = {
+    settings = {
+      Lua = {
+        hint = {
+          enable = true, -- necessary
+        },
+      },
+    },
+  },
+  unocss = {},
+  volar = {
+    init_options = {
+      vue = {
+        hybridMode = false,
+      },
+      typescript = {
+        tsdk = "/Users/jayqing/.local/share/nvim/mason/packages/vue-language-server/node_modules/typescript/lib",
+      },
+    },
+
+    settings = {
+      typescript = {
+        inlayHints = {
+          enumMemberValues = {
+            enabled = true,
+          },
+          functionLikeReturnTypes = {
+            enabled = true,
+          },
+          propertyDeclarationTypes = {
+            enabled = true,
+          },
+          parameterTypes = {
+            enabled = true,
+            suppressWhenArgumentMatchesName = true,
+          },
+          variableTypes = {
+            enabled = true,
+          },
+        },
+      },
+    },
+  },
+  ts_ls = {
+    init_options = {
+      plugins = {
+        {
+          name = "@vue/typescript-plugin",
+          location = home
+            .. "/User/jayqing/.local/share/nvim/mason/packages/vue-language-server/node_modules/@vue/language-server",
+          languages = { "vue" },
+        },
+      },
+    },
+
+    settings = {
+      typescript = {
+        inlayHints = {
+          includeInlayParameterNameHints = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+      },
+      javascript = {
+        inlayHints = {
+          includeInlayParameterNameHints = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+      },
+    },
+  },
   eslint = {
     filetypes = {
       "javascript",
@@ -176,7 +255,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     -- Inlay hint
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
-      -- vim.lsp.inlay_hint.enable()
+      vim.lsp.inlay_hint.enable()
       map("<leader>th", function()
         vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
       end, "Toggle Inlay Hints")

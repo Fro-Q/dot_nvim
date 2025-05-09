@@ -13,6 +13,7 @@ opt.listchars = { trail = "·", tab = "» " }
 
 opt.wrap = false
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#555555" }) -- neither this one
+vim.api.nvim_set_hl(0, "LspInlayHint", { bg = "#333333", italic = true })
 
 vim.opt.whichwrap = "<,>"
 
