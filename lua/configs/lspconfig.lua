@@ -253,6 +253,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     --   vim.wo[win][0].foldexpr = 'v:lua.vim.lsp.foldexpr()'
     -- end
 
+    -- disable volar as formatter
+    if client.name == "volar" then
+      client.server_capabilities.documentFormattingProvider = false
+    end
+
     -- Inlay hint
     if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
       vim.lsp.inlay_hint.enable()
