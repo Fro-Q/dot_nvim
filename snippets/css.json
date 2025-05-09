@@ -1,0 +1,6 @@
+{
+  "uno:": {
+    "prefix": "uno",
+    "body": ["--uno: '${1:class}';"]
+  }
+}

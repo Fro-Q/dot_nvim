@@ -9,7 +9,8 @@ return {
     opts = {
       default = {
         dir_path = function()
-          return vim.fn.expand "%:t:r" .. "_assets"
+          local current_dir = vim.fn.expand "%:p:h"
+          return current_dir .. "/" .. vim.fn.expand "%:t:r" .. "_assets"
         end,
         use_absolute_path = false,
         copy_images = true,

@@ -19,11 +19,16 @@ return {
         api.tree.focus()
       end
 
+      local function collapse_folder()
+        api.node.navigate.parent()
+        api.node.open.edit()
+      end
+
       ---@diagnostic disable-next-line: undefined-global
       local map = vim.keymap.set
 
       map("n", "L", edit_or_open, opts "Edit Or Open")
-      map("n", "h", api.tree.close, opts "Close")
+      map("n", "h", collapse_folder, opts "Close")
       map("n", "l", api.node.open.preview, opts "Preview")
       map("n", "o", api.node.open.edit, opts "Open")
       map("n", "<cr>", api.node.open.edit, opts "Open")

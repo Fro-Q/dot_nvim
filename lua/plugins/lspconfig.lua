@@ -28,6 +28,7 @@ return {
       },
     },
   },
+
   config = function()
     require "configs.lspconfig"
   end,

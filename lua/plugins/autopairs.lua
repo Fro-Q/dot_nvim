@@ -60,6 +60,7 @@ return {
       { "<!--", "-->", ft = { "markdown", "html", "vue" }, space = true },
       { '"""', '"""', newline = true, ft = { "python" } },
       { "'''", "'''", newline = true, ft = { "python" } },
+      { "/*", "*/", newline = false, space = true, ft = { "css" } },
     },
   },
 }

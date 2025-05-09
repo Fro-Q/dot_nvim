@@ -1,7 +1,10 @@
-local map = vim.keymap.set
+local map = function(mods, keys, func, opts)
+  ---@diagnostic disable: undefined-global
+  vim.keymap.set(mods, keys, func, opts)
+end
 
 -- insert mode
-map({ "i", "t" }, "jk", "<ESC>", { desc = "escape insert mode" })
+vim.keymap.set({ "i", "t" }, "jk", "<ESC>", { desc = "escape insert mode" })
 map({ "i", "t" }, "JK", "<ESC>", { desc = "escape insert mode" })
 
 -- normal mode
@@ -51,6 +54,6 @@ end, { desc = "terminal toggle floating term" })
 
 -- map("n", "<leader>wK", "<cmd>WhichKey <CR>", { desc = "whichkey all keymaps" })
 
--- map("n", "<leader>th", function()
---   require("nvchad.themes").open()
--- end, { desc = "telescope nvchad themes" })
+map("n", "<leader>TH", function()
+  require("nvchad.themes").open()
+end, { desc = "telescope nvchad themes" })

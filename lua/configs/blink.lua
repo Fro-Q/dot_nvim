@@ -5,6 +5,7 @@ require("blink.cmp").setup {
       snippets = { score_offset = 1000 },
     },
   },
+  snippets = { preset = "luasnip" },
   signature = {
     window = { border = "single" },
   },
