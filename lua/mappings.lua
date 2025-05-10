@@ -4,9 +4,9 @@ local map = function(mods, keys, func, opts)
 end
 
 -- insert mode
-vim.keymap.set({ "i", "t" }, "jk", "<ESC>", { desc = "escape insert mode" })
-map({ "i", "t" }, "JK", "<ESC>", { desc = "escape insert mode" })
 
+map({ "i", "t" }, "jk", "<ESC>", { desc = "escape insert mode" })
+map({ "i", "t" }, "JK", "<ESC>", { desc = "escape insert mode" })
 -- normal mode
 map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
 map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
