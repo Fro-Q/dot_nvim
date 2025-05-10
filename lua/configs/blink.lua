@@ -14,13 +14,21 @@ require("blink.cmp").setup {
     window = { border = "single" },
   },
   cmdline = {
+    keymap = {
+      preset = "inherit",
+    },
     completion = {
+      list = {
+        selection = {
+          preselect = false,
+          auto_insert = false,
+        },
+      },
       menu = {
         auto_show = true,
       },
     },
   },
-
   completion = {
     list = {
       selection = {
