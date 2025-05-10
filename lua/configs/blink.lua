@@ -1,8 +1,12 @@
 require("blink.cmp").setup {
   sources = {
-    -- default = { 'lsp', 'path', 'snippets', 'buffer' },
+    default = { "lsp", "path", "snippets", "buffer", "references" },
     providers = {
       snippets = { score_offset = 1000 },
+      references = {
+        name = "pandoc_references",
+        module = "cmp-pandoc-references.blink",
+      },
     },
   },
   snippets = { preset = "luasnip" },
@@ -18,6 +22,15 @@ require("blink.cmp").setup {
   },
 
   completion = {
+    list = {
+      selection = {
+        preselect = false,
+        auto_insert = false,
+      },
+    },
+    keyword = {
+      range = "full",
+    },
     menu = {
       border = "single",
       draw = {
@@ -42,17 +55,18 @@ require("blink.cmp").setup {
   },
   keymap = {
     preset = "none",
-    ["<CR>"] = {
-      function(cmp)
-        if cmp.snippet_active() then
-          return cmp.accept()
-        else
-          return cmp.select_and_accept()
-        end
-      end,
-      "snippet_forward",
-      "fallback",
-    },
+    ["<CR>"] = { "accept", "fallback" },
+    -- ["<CR>"] = {
+    --   function(cmp)
+    --     if cmp.snippet_active() then
+    --       return cmp.accept()
+    --     else
+    --       return cmp.select_and_accept()
+    --     end
+    --   end,
+    --   "snippet_forward",
+    --   "fallback",
+    -- },
     ["<tab>"] = { "select_next", "snippet_forward", "fallback" },
     ["<S-tab>"] = { "select_prev", "snippet_backward", "fallback" },
   },
