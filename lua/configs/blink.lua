@@ -5,7 +5,7 @@ require("blink.cmp").setup {
       snippets = { score_offset = 1000 },
       references = {
         name = "pandoc_references",
-        module = "cmp-pandoc-references.blink",
+        module = "blink.compat.source",
       },
     },
   },
