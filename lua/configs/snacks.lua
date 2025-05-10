@@ -48,7 +48,7 @@ require("snacks").setup {
     scope = {
       enabled = true, -- enable highlighting the current scope
       priority = 200,
-      char = "┊",
+      char = "|",
       underline = false, -- underline the start of the scope
       only_current = true, -- only show scope in the current window
       hl = {
