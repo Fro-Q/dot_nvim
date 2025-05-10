@@ -1,12 +1,14 @@
 require("blink.cmp").setup {
   sources = {
-    default = { "lsp", "path", "snippets", "buffer", "references" },
+
+    default = { "lsp", "path", "snippets", "buffer", "references", "im" },
     providers = {
       snippets = { score_offset = 1000 },
       references = {
         name = "pandoc_references",
         module = "blink.compat.source",
       },
+      im = { name = "IM", module = "blink_cmp_im", score_offset = 2000 },
     },
   },
   snippets = { preset = "luasnip" },

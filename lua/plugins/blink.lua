@@ -1,6 +1,6 @@
 return {
-  {
 
+  {
     "saghen/blink.cmp",
     event = { "BufReadPost", "BufNewFile" },
     -- build = "cargo build --release",
@@ -19,11 +19,40 @@ return {
           }
         end,
       },
+      { "saghen/blink.compat" },
+      { "jc-doyle/cmp-pandoc-references" },
+      { "yehuohan/cmp-im-zh", lazy = false },
       {
-        "saghen/blink.compat",
-      },
-      {
-        "jc-doyle/cmp-pandoc-references",
+        "yehuohan/blink-cmp-im",
+        opts = {
+          enable = true,
+          tables = { string.format "/Users/jayqing/.config/nvim/lua/configs/im/flypy.txt" },
+          symbols = {
+            ["`"] = "·",
+            ["!"] = "！",
+            ["$"] = "￥",
+            ["^"] = "……",
+            ["("] = "（",
+            [")"] = "）",
+            ["["] = "【",
+            ["]"] = "】",
+            ["\\"] = "、",
+            [":"] = "：",
+            [";"] = "；",
+            ["'"] = "‘’<Left>",
+            ['"'] = "“”<Left>",
+            [","] = "，",
+            ["."] = "。",
+            ["<"] = "《",
+            [">"] = "》",
+            ["?"] = "？",
+            ["_"] = "——",
+          },
+          format = function(key, text)
+            return vim.fn.printf("%-15S %s", text, key)
+          end,
+          maxn = 10,
+        },
       },
     },
     config = function()
