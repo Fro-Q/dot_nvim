@@ -6,8 +6,8 @@ return {
     pair_cmap = false,
     tabout = {
       enable = true,
-      map = "<C-q>",
-      cmap = "<C-q>",
+      map = "<tab>",
+      cmap = "<tab>",
       hopout = true,
     },
     internal_pairs = {
